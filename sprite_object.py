@@ -66,6 +66,7 @@ class AnimatedSprite(SpriteObject):
         super().update()
         self.check_animation_time()
         self.animate(self.images)
+
     def animate(self, images):
         if self.animation_trigger:
             images.rotate(-1)
@@ -85,4 +86,3 @@ class AnimatedSprite(SpriteObject):
                 img = pg.image.load(path + '/' + file_name).convert_alpha()
                 images.append(img)
         return images
-
