@@ -47,9 +47,9 @@ class Player:
         self.angle %= math.tau
 
     def draw(self):
-        # pg.draw.line(self.game.screen, "yellow", (self.x * 100, self.y * 100),
-        #              (self.x *  + WIDTH * math.cos(self.angle),
-        #               self.y * 100 + WIDTH * math.sin(self.angle)), 2)
+        pg.draw.line(self.game.screen, "yellow", (self.x * 100, self.y * 100),
+                     (self.x *  + WIDTH * math.cos(self.angle),
+                      self.y * 100 + WIDTH * math.sin(self.angle)), 2)
         pg.draw.circle(self.game.screen, "green", (self.x * 100, self.y * 100), 15)
 
     def mouse_control(self):
@@ -60,8 +60,6 @@ class Player:
             self.rel = max(-MOUSE_MAX_REL, min(MOUSE_MAX_REL, self.rel))
             self.angle += self.rel * MOUSE_SENSETIVITY * self.game.delta_time
 
-
-
     def check_wall(self, x, y):
         return (x, y) not in self.game.map.world_map
 
@@ -70,8 +68,7 @@ class Player:
         if self.check_wall(int(self.x + dx * scale), int(self.y)):
             self.x += dx
         if self.check_wall(int(self.x), int(self.y + dy * scale)):
-            self.y += dy                                   
-
+            self.y += dy
 
     def update(self):
         self.movement()
