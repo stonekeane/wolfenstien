@@ -59,6 +59,19 @@ class Game:
         self.object_renderer.draw()
         self.weapon.draw()
 
+    def check_for_game_won(self):
+        if self.all_bad_guys_are_dead():
+            self.object_renderer.win()
+            pg.display.flip()
+            pg.time.delay(1500)
+            self.new_game()
+
+    def all_bad_guys_are_dead(self) -> bool:
+        for bad_guy in self.object_handler.npc_list:
+            if bad_guy.alive == True:
+                return False
+        return True
+
 
     def check_events(self):
         self.global_triger = False
