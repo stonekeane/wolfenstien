@@ -82,6 +82,7 @@ class NPC(AnimatedSprite):
         if self.health < 1:
             self.alive = False
             self.game.sound.npc_death.play()
+            self.game.check_for_game_won()
 
     def run_logic(self):
         if self.alive:

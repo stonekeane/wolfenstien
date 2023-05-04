@@ -35,6 +35,7 @@ class Game:
         self.weapon = Weapon(self)
         self.sound = Sound(self)
         self.pathfinding = PathFinding(self)
+        pg.mixer.music.play(-1)
 
 
     def update(self):
@@ -57,6 +58,19 @@ class Game:
     def draw_3d(self):
         self.object_renderer.draw()
         self.weapon.draw()
+
+    def check_for_game_won(self):
+        if self.all_bad_guys_are_dead():
+            self.object_renderer.win()
+            pg.display.flip()
+            pg.time.delay(1500)
+            self.new_game()
+
+    def all_bad_guys_are_dead(self) -> bool:
+        for bad_guy in self.object_handler.npc_list:
+            if bad_guy.alive == True:
+                return False
+        return True
 
 
     def check_events(self):
