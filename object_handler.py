@@ -28,12 +28,15 @@ class ObjectHandler:
         add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + 'red_light/0.png', pos=(9.5, 7.5)))
 
         # npc map
-        add_npc(NPC(game))
-        add_npc(NPC(game, pos=(11.5, 4.5)))
-        add_npc(NPC(game, pos=(11.5, 4.8)))
-        add_npc(NPC(game, pos=(11.5, 3.5)))
-        add_npc(NPC(game, pos=(13.5, 4.8)))
-        add_npc(NPC(game, pos=(11.4, 5.5)))
+        add_npc(SoldierNPC(game, pos=(11.0, 19.0)))
+        add_npc(SoldierNPC(game, pos=(11.5, 4.5)))
+        add_npc(SoldierNPC(game, pos=(13.5, 6.5)))
+        add_npc(SoldierNPC(game, pos=(2.0, 20.0)))
+        add_npc(SoldierNPC(game, pos=(4.0, 29.0)))
+        add_npc(CacoDemonNPC(game, pos=(5.5, 14.5)))
+        add_npc(CacoDemonNPC(game, pos=(5.5, 16.5)))
+        add_npc(CyberDemonNPC(game, pos=(14.5, 25.5)))
+
 
 
 
